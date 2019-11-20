@@ -7,35 +7,34 @@ Alok's repository
   
   GraphQL Queries:
   
-  1.Get Product by Id
+1. Get Product by Id
 
-{ 
-  getProduct(id:3){
+ { 
+   getProduct(id:3){
     id
     name
     price
   }
-}
+ }
 
 2.Get products by name
 
-{ 
-  getProductsByName(name:”Petrol"){
+ { 
+   getProductsByName(name:”Petrol"){
     id
     name
     price
   }
-}
+ }
 
 3. Get all products
 
-
-{
-  allProducts{
+ {
+   allProducts{
     name
     price
   }
-}
+ }
 
 
 4.Create Product 
@@ -45,8 +44,8 @@ Alok's repository
     id
     name
     price
+   }
   }
-}
 
 5.Update price
 
@@ -56,7 +55,7 @@ Alok's repository
     name
     price
   }
-}
+ }
 
 6. Rename Product
 
@@ -66,10 +65,10 @@ Alok's repository
     name
     price
   }
-}
+ }
 
-Delete product
+7. Delete product
 
 mutation {
   deleteProduct(id:4)
-}
+ }
