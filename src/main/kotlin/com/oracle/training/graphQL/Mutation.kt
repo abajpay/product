@@ -33,11 +33,11 @@ open class Mutation : GraphQLMutationResolver {
     @Transactional
     open fun updateProduct(id: Long, price: Double): Product {
 
-        val product = if (productRepository!!.findById(id).isPresent) productRepository.findById(id).get() else null
+        val product = if (productRepository!!.findById(id).isPresent) productRepository!!.findById(id).get() else null
         if (product != null) {
             priceChangePublisher!!.publishPriceChange(product, price)
             product.price = price
-            return productRepository.save(product)
+            return productRepository!!.save(product)
         } else {
             return Product()
         }
@@ -46,11 +46,11 @@ open class Mutation : GraphQLMutationResolver {
     @Transactional
     open fun renameProduct(id: Long, name: String): Product {
 
-        val product = if (productRepository!!.findById(id).isPresent) productRepository.findById(id).get() else null
+        val product = if (productRepository!!.findById(id).isPresent) productRepository!!.findById(id).get() else null
         if (product != null) {
             priceChangePublisher!!.publishNameChange(product, name)
             product.name = name
-            return productRepository.save(product)
+            return productRepository!!.save(product)
         } else {
             return Product()
         }
